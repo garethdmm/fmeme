@@ -1,0 +1,18 @@
+application: effmeme
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /favicon.ico
+  static_files: images/favicon.ico 
+  upload: images/favicon.ico
+
+- url: .*
+  static_files: index.html
+  upload: index.html
+
+builtins:
+- remote_api: on
+
