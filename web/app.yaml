@@ -9,9 +9,18 @@ handlers:
   static_files: images/favicon.ico 
   upload: images/favicon.ico
 
+- url: /css
+  static_dir: static/css
+
+- url: /js
+  static_dir: static/js
+
+- url: /images
+  static_dir: static/images
+
 - url: .*
-  static_files: index.html
-  upload: index.html
+  static_files: static/html/index.html
+  upload: static/html/index.html
 
 builtins:
 - remote_api: on
