@@ -1,0 +1,48 @@
+#fm-base {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fm-meme-edit-container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 40pt; 
+}
+
+#fm-meme-edit-container input {
+  width: 100%;
+  height: 50px;
+  display: block;
+  margin-top: 10px;
+  font-size: 30pt; 
+  text-align: center;
+}
+
+#share-button {
+  font-size: 30pt;
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#fm-grid-base {
+  display: none;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.fm-grid-square {
+  display: none;
+  margin-right: 50px;
+}
+
+div.fm-grid-square img {
+  display: none;
+  width: 200px;
+  border: 1px solid black;
+  padding: 5px;
+}

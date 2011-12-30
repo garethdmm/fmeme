@@ -19,8 +19,7 @@ handlers:
   static_dir: static/images
 
 - url: .*
-  static_files: static/html/index.html
-  upload: static/html/index.html
+  script: bindings.py
 
 builtins:
 - remote_api: on
