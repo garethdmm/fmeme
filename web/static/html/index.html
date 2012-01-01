@@ -8,28 +8,59 @@
   feed_url_base = '%(feed_url)s';
 </script>
 <script src="js/index.js" type="text/javascript"></script>
+<script src='js/memecontrols.js' type='text/javascript'></script>
 
 <body>
 <div id='fm-base'>
-  <div id='fm-meme-edit-container'>
-    <img src='images/fry.png'/>
-    <input id='fm-top-text' value='top text' type='text'/>
-    <input id='fm-bottom-text' value='bottom text' type='text'/>
-    <a id='share-button' href='#'>Share!</a>
-  </div>
 
   <div id='fm-grid-base'>
-    <div class='fm-grid-square'>
-      <img src='images/allofthethings.png'/>
+    <div id='sap' class='fm-grid-square neutral'>
+      <a href='#' id='sap-back-button' class='back-button'>
+        <img src='images/xicon.png' class='back-button'/>
+      </a>
+      <img id='sap-image' src='images/sap.jpg' class='meme-image'/>
+      <canvas id='sap-canvas' class='editor-canvas'></canvas>
+      <div id='sap-inputs-container' class='fm-inputs-container'>
+        <input id='sap-top' class='fm-top-text' value='top text' type='text'/>
+        <input id='sap-bottom' class='fm-bottom-text' value='bottom text' type='text'/>
+        <a id='sap-share' class='share-button' href='#'>Share!</a>
+      </div>
     </div>
-    <div class='fm-grid-square'>
-      <img src='images/yuno.png'/>
+    <div id='fry' class='fm-grid-square neutral'>
+      <a href='#' id='fry-back-button' class='back-button'>
+        <img src='images/xicon.png' class='back-button'/>
+      </a>
+      <img id='fry-image' src='images/fry.png' class='meme-image'/>
+      <canvas id='fry-canvas' class='editor-canvas'></canvas>
+      <div id='fry-inputs-container' class='fm-inputs-container'>
+        <input id='fry-top' class='fm-top-text' value='top text' type='text'/>
+        <input id='fry-bottom' class='fm-bottom-text' value='bottom text' type='text'/>
+        <a id='fry-share' class='share-button' href='#'>Share!</a>
+      </div>
     </div>
-    <div class='fm-grid-square'>
-      <img src='images/fry.png'/>
+    <div id='interesting' class='fm-grid-square neutral'>
+      <a href='#' id='interesting-back-button' class='back-button'>
+        <img src='images/xicon.png' class='back-button'/>
+      </a>
+      <img id='interesting-image' src='images/interesting.jpg' class='meme-image'/>
+      <canvas id='interesting-canvas' class='editor-canvas'></canvas>
+      <div id='interesting-inputs-container' class='fm-inputs-container'>
+        <input id='interesting-top' class='fm-top-text' value='top text' type='text'/>
+        <input id='interesting-bottom' class='fm-bottom-text' value='bottom text' type='text'/>
+        <a id='interesting-share' class='share-button' href='#'>Share!</a>
+      </div>
     </div>
-    <div class='fm-grid-square'>
-      <img src='images/couragewolf.jpg'/>
+    <div id='couragewolf' class='fm-grid-square neutral'>
+      <a href='#' id='couragewolf-back-button' class='back-button'>
+        <img src='images/xicon.png' class='back-button'/>
+      </a>
+      <img id='couragewolf-image'src='images/couragewolf.jpg' class='meme-image'/>
+      <canvas id='couragewolf-canvas' class='editor-canvas'></canvas>
+      <div id='couragewolf-inputs-container' class='fm-inputs-container'>
+        <input id='couragewolf-top' class='fm-top-text' value='top text' type='text'/>
+        <input id='couragewolf-bottom' class='fm-bottom-text' value='bottom text' type='text'/>
+        <a id='couragewolf-share' class='share-button' href='#'>Share!</a>
+      </div>
     </div>
   </div>
 
