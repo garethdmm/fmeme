@@ -3,22 +3,22 @@
   src: url('/fonts/impact.ttf');
 }
 
+h1 {
+  text-align: center;
+  font-family: 'helvetica';
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
 #fm-base {
-  width: 900px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
-a.share-button {
-  font-size: 30pt;
-  display: block;
-  margin-top: 50px;
-  text-align: center;
-}
-
 #fm-grid-base {
-  width: 600px;
+  width: 760px;
+  height: 150%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -26,6 +26,7 @@ a.share-button {
 
 div.fm-grid-square {
   border: 1px solid black;
+  margin-bottom: 20px;
 }
 
 div.fm-grid-square.neutral {
@@ -36,6 +37,17 @@ div.fm-grid-square.neutral {
   width: 200px;
   float: left;
   cursor: pointer;
+}
+
+div.fm-grid-square.active {
+  border: none;
+  display: block;
+  height: 600px;
+  width: 760px;
+}
+
+div.fm-grid-square.inactive {
+  display: none;
 }
 
 div.fm-grid-square.neutral div.fm-inputs-container,
@@ -53,13 +65,29 @@ div.fm-grid-square.active canvas.editor-canvas {
 div.fm-grid-square.active div.fm-inputs-container {
   display: block;
   width: 350px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 
-div.fm-grid-square.active img {
-  margin-left: 50px;
-  margin-right: 50px;
+div.fm-grid-square.neutral img.meme-thumb {
+  margin-left:10px;
+  margin-top: 10px;
+  width: 180px;
+}
+
+div.fm-grid-square.active img.meme-thumb {
+  display: none;
+}
+
+div.fm-grid-square.neutral img.meme-image {
+  display: none;
+}
+
+div.fm-grid-square.active img.meme-image {
+  display: block;
+  width: 400px;
+  margin-left:180px;
 }
 
 
@@ -70,6 +98,7 @@ div.fm-grid-square.active img.back-button {
   left: 0px;
   width: 30px;
   margin: 0px;
+  margin-left: 150px;
 }
 
 div.fm-inputs-container input {
@@ -80,17 +109,16 @@ div.fm-inputs-container input {
   height 20px;
 }
 
-div.fm-grid-square.active {
+a.share-button {
   display: block;
-  height: 600px;
-  width: 700px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-div.fm-grid-square.inactive {
-  display: none;
+.share-button img {
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-div.fm-grid-square.neutral img {
-  margin-left:25px;
-  width: 150px;
-}

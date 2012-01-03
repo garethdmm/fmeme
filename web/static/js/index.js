@@ -18,8 +18,11 @@ resize_canvas = function(meme_id) {
   canvas = document.getElementById(canvas_id);
   image = document.getElementById(image_id);
 
-  canvas.width = image.width;
-  canvas.height = image.height;
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+
+  console.log(canvas.width);
+  console.log(canvas.height);
 }
 
 back_button_click = function(event) {
@@ -50,6 +53,7 @@ grid_square_click = function(event) {
   div_id = 'div#' + meme_id;
   canvas_id = '#' + meme_id +'-canvas';
   image_id = div_id + ' img.meme-image';
+  top_id = '#' + meme_id + '-top';
 
   // add class inactive to all others
   $('div.fm-grid-square.neutral').removeClass('neutral');
@@ -64,6 +68,8 @@ grid_square_click = function(event) {
   $(canvas_id).offset($(image_id).offset());
 
   resize_canvas(meme_id);
+
+  $(top_id).focus();
 }
 
 share_click = function(event) {

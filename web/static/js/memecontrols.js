@@ -27,7 +27,6 @@ updateMemeText = function(meme_id, redraw) {
   bottom_id = '#' + meme_id + '-bottom';
 
   canvas = document.getElementById(canvas_id);
-  context = canvas.getContext('2d');
 
   top_text = $(top_id).val();
   bottom_text = $(bottom_id).val();
@@ -35,7 +34,7 @@ updateMemeText = function(meme_id, redraw) {
   if (top_text == 'top text') top_text = '';
   if (bottom_text == 'bottom text') bottom_text = '';
 
-  writeMemeText(top_text, bottom_text, context, redraw);
+  writeMemeText(top_text, bottom_text, canvas, redraw);
 }
 
 
@@ -48,13 +47,10 @@ bake = function(meme_id) {
   canvas = document.getElementById(canvas_id);
   image = document.getElementById(image_id);
 
-  context = canvas.getContext("2d");
-  context = initContextForText(context);
+  context = getContextForText(canvas);
 
   context.drawImage(image, 0, 0);
   updateMemeText(meme_id, false);
-  
-  $('#' + image_id).css('visibility', 'hidden');
 
   var imageBytes = canvas.toDataURL("image/jpeg");
 
@@ -76,20 +72,23 @@ bake = function(meme_id) {
 
  
 // buttsecks the canvas context so we can write text properly
-initContextForText = function (ctx) {
+getContextForText = function (canvas) {
+  ctx = canvas.getContext('2d');
+
   ctx.strokeStyle = "#000";
   ctx.lineWidth = 2;
   ctx.fillStyle = "#fff";
   ctx.textAlign = "center";
-  ctx.font = "60px MemeImpact";
-  ctx.fontsize = 60; // remember our font size baby
+  console.log(canvas.height);
+  ctx.fontsize = canvas.height / 10;
+  ctx.font = ctx.fontsize + "px MemeImpact";
   ctx.textBaseline = "middle";
   return ctx;
 }
 
  
-writeMemeText = function(top_text,bottom_text,ctx,redraw) {
-  ctx = initContextForText(ctx);
+writeMemeText = function(top_text,bottom_text,canvas,redraw) {
+  ctx = getContextForText(canvas);
 
   if (redraw !== false) {
     // clear canvas and redraw
