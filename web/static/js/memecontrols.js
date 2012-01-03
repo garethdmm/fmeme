@@ -43,6 +43,8 @@ bake = function(meme_id) {
   console.log('baking...');
   canvas_id = meme_id + '-canvas';
   image_id = meme_id + '-image';
+  spinner_id = '#' + meme_id + ' img.loading';
+  share_id = '#' + meme_id + ' .share-button img.share-image';
 
   canvas = document.getElementById(canvas_id);
   image = document.getElementById(image_id);
@@ -57,6 +59,9 @@ bake = function(meme_id) {
   data = {
     'image': imageBytes,
   }
+
+  $(spinner_id).css('display', 'inline');
+  $(share_id).css('display', 'none');
 
   $.ajax({
     url: 'bake',

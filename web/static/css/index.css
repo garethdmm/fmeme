@@ -115,10 +115,14 @@ a.share-button {
   text-align: center;
 }
 
-.share-button img {
+.share-button img.share-image {
   width: 200px;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
+}
+
+.share-button img.loading {
+  display: none;
 }
 
