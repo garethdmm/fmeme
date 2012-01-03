@@ -11,7 +11,6 @@ function get_feed_url(image_url) {
 }
 
 resize_canvas = function(meme_id) {
-  console.log('resizing!');
   canvas_id = meme_id + '-canvas';
   image_id = meme_id + '-image';
 
@@ -20,9 +19,6 @@ resize_canvas = function(meme_id) {
 
   canvas.width = image.naturalWidth;
   canvas.height = image.naturalHeight;
-
-  console.log(canvas.width);
-  console.log(canvas.height);
 }
 
 back_button_click = function(event) {
@@ -47,8 +43,14 @@ grid_square_click = function(event) {
   if ($(this).hasClass('closed')) {
     $(this).removeClass('closed')
     return;
+  } else if ($(this).hasClass('active')) {
+    return;
   }
 
+  $('body').animate({
+    scrollTop: '0px',
+  }, 400);
+    
   meme_id = $(this).attr('id');
   div_id = 'div#' + meme_id;
   canvas_id = '#' + meme_id +'-canvas';

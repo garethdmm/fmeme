@@ -18,7 +18,7 @@ class BakeHandler(webapp.RequestHandler):
 
     # post to imgur to get the url
     data = urllib.urlencode({
-      'key': imgur_key,  
+      'key': imgur_key,
       'image': image, 
       'type': 'base64',
     })
