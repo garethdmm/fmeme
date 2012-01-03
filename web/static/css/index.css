@@ -3,11 +3,38 @@
   src: url('/fonts/impact.ttf');
 }
 
+html {
+  font-family: 'helvetica';
+}
+
 h1 {
   text-align: center;
   font-family: 'helvetica';
   font-size: 40px;
   margin-bottom: 20px;
+}
+
+div.fm-grid-square h2 {
+  width: 160px;
+  z-index: 10000;
+  display: none;
+  position: absolute;
+  bottom: 30%;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  line-height: 1.5;
+  text-align: center;
+}
+
+div.fm-grid-square h2.black {
+  color: black;
+}
+
+div.fm-grid-square:hover h2 {
+  display: inline;
 }
 
 #fm-base {
@@ -27,6 +54,9 @@ h1 {
 div.fm-grid-square {
   border: 1px solid black;
   margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  clear: none;
 }
 
 div.fm-grid-square.neutral {
