@@ -1,3 +1,10 @@
+meme_type = '';
+baked = false;
+image_url = '';
+
+childflag = false;
+child = undefined;
+
 $(document).ready(function() {
 
   $('.fm-top-text').each(function() {
@@ -58,24 +65,43 @@ bake = function(meme_id) {
 
   data = {
     'image': imageBytes,
+    'meme_type': meme_type,
   }
 
   $(spinner_id).css('display', 'inline');
   $(share_id).css('display', 'none');
+
+  child = window.open('https://' + window.location.host + '/fbshare', 'child', 'height=400,width=625,scrollbars');
 
   $.ajax({
     url: 'bake',
     type: 'post',
     data: data,
     success: function(response) {
-      // get the url from the response
-      // redirect to the feed url
-      window.top.location = get_feed_url(response);
+      image_url = response;
+      send_child_to_facebook();  
     },
   });
 };
 
- 
+send_child_to_facebook = function() {
+  if (childflag == false) {
+    setTimeout('send_child_to_facebook()', 1000);
+    return;
+  } else {
+    child.location = 'https://www.facebook.com/sharer.php?u=' + escape(image_url);
+    return;
+  }
+}
+
+childopen = function() {
+  if (childflag == true) {
+    child.close();
+  } else {
+    childflag = true;
+  }
+}
+
 // buttsecks the canvas context so we can write text properly
 getContextForText = function (canvas) {
   ctx = canvas.getContext('2d');

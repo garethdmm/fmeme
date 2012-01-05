@@ -8,9 +8,16 @@ class ImageHandler(webapp.RequestHandler):
   def get(self):
     # receive image bytes
     image_id = self.request.get('id', '' )
+    meme_name = self.request.get('meme_name', '')
 
-    # render a page with basically just an image tag pointing to the
-    # imgur link
-    self.response.out.write("<img src='http://i.imgur.com/" + image_id + "'>")
+    imgur_link = 'http://i.imgur.com/' + image_id
 
+    params = {
+      'title': meme_name,
+      'image_url': imgur_link,
+    }
+
+    template = open('static/html/image.html').read()
+
+    self.response.out.write(template % params)
 
