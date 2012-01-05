@@ -7,6 +7,7 @@ from constants import imgur_upload_url, imgur_key
 import urllib
 import base64
 import logging
+import os
 
 class BakeHandler(webapp.RequestHandler):
   def post(self):
@@ -33,7 +34,10 @@ class BakeHandler(webapp.RequestHandler):
     # parse response
     # TODO error handling
     response_data = json.loads(response.content)
-    image_url = response_data['upload']['links']['original']
+    image_id = response_data['upload']['links']['original']
+
+    image_id = image_id[image_id.rfind('/') + 1 : ]
+    image_url = 'http://' + os.environ['HTTP_HOST'] + '/image?id=' + image_id
 
     # return the imgur url
     self.response.out.write(image_url)

@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function get_feed_url(image_url) {
-  feed_url = feed_url_base + '&picture=' + escape(image_url);
+  feed_url = feed_url_base + '&link=' + escape(image_url);
   return feed_url;
 }
 
