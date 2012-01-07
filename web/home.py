@@ -38,7 +38,7 @@ class HomeHandler(webapp.RequestHandler):
   def post(self):
     data = self.get_facebook_data()
 
-    if 'user_id' not in data:
+    if False:#'user_id' not in data:
       # haven't been authorized yet
       # bounce the user to the facebook authorization page
 
