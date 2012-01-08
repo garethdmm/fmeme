@@ -23,6 +23,7 @@ class ImageHandler(webapp.RequestHandler):
     params = {
       'title': meme_names[image.type],
       'image_url': imgur_link,
+      'page_url': self.request.url,
     }
 
     template = open('static/html/image.html').read()
