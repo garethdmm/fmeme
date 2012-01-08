@@ -21,3 +21,18 @@ meme_names = {
   'scumbagsteve': 'Scumbag Steve',
   'allofthethings': 'All the Things!',
 };
+
+meme_default_links = {
+  'interesting': 'images/interesting.jpg',
+  'fry': 'images/fry.png',
+  'sap': 'images/sap.jpg',
+  'couragewolf': 'images/couragewolf.jpg',
+  'successkid': 'images/successkid.jpg',
+  'scumbagbrain': 'images/scumbagbrain.png',
+  'hipsterbarista': 'images/scumbagsteve.jpg',
+  'goodguygreg': 'images/goodguygreg.jpg',
+  'firstworldproblems': 'images/firstworldproblems.jpg',
+  'brogrammer': 'images/brogrammer.jpg',
+  'scumbagsteve': 'images/scumbagsteve.jpg',
+  'allofthethings': 'images/allofthethings.png',
+}

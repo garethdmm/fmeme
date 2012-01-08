@@ -56,9 +56,23 @@ grid_square_click = function(event) {
   canvas_id = '#' + meme_id +'-canvas';
   image_id = div_id + ' img.meme-image';
   top_id = '#' + meme_id + '-top';
-  
+ 
+  new_image_id = $('#new-image-id').val();
+ 
   // update the global
   meme_type = meme_id;
+
+  data = {
+    'id': new_image_id,
+    'meme_type': meme_type, 
+  }
+
+  $.ajax({
+    url: 'image',
+    type: 'post',
+    data: data,
+    success: function(response) {},
+  });
 
   // add class inactive to all others
   $('div.fm-grid-square.neutral').removeClass('neutral');

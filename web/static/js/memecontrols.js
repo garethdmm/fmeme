@@ -6,6 +6,7 @@ childflag = false;
 child = undefined;
 
 $(document).ready(function() {
+  setTimeout('facebook_bind()', 1000);
 
   $('.fm-top-text').each(function() {
     $(this).keyup(function() {
@@ -23,6 +24,17 @@ $(document).ready(function() {
 
 });
 
+facebook_bind = function () {
+  FB.Event.subscribe('edge.create',
+      function(response) {
+        like_click(response);
+      }
+  );
+};
+
+like_click = function(response) {
+  bake(meme_type);
+}
 
 updateMemeText = function(meme_id, redraw) {
   if (redraw == undefined) {
@@ -62,16 +74,16 @@ bake = function(meme_id) {
   updateMemeText(meme_id, false);
 
   var imageBytes = canvas.toDataURL("image/jpeg");
+  new_image_id = $('#new-image-id').val();
 
   data = {
     'image': imageBytes,
     'meme_type': meme_type,
+    'new_image_id': new_image_id,
   }
 
   $(spinner_id).css('display', 'inline');
   $(share_id).css('display', 'none');
-
-  child = window.open('https://' + window.location.host + '/fbshare', 'child', 'height=400,width=625,scrollbars');
 
   $.ajax({
     url: 'bake',
@@ -79,7 +91,7 @@ bake = function(meme_id) {
     data: data,
     success: function(response) {
       image_url = response;
-      send_child_to_facebook();  
+      window.location = response;
     },
   });
 };

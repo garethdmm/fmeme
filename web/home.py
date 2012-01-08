@@ -6,6 +6,7 @@ import logging
 import urllib
 import base64
 
+from model import Image
 from constants import app_id, canvas_page, auth_url
 
 class HomeHandler(webapp.RequestHandler):
@@ -13,7 +14,13 @@ class HomeHandler(webapp.RequestHandler):
     if 'localhost' in self.request.url:
       feed_url = self.feed_dialog_url()
       f = open('static/html/index.html')
-      self.response.out.write(f.read() % {'feed_url': feed_url})
+
+      params = {
+        'feed_url': feed_url,
+        'new_image_id': Image.make_id(),
+      }
+
+      self.response.out.write(f.read() % params)
       return
 
     code = self.request.get('code', '')
@@ -49,7 +56,13 @@ class HomeHandler(webapp.RequestHandler):
 
       feed_url = self.feed_dialog_url()
       f = open('static/html/index.html')
-      self.response.out.write(f.read() % {'feed_url': feed_url})
+
+      params = {
+        'feed_url': feed_url,
+        'new_image_id': Image.make_id(),
+      }
+
+      self.response.out.write(f.read() % params)
 
 
   def get_facebook_data(self):

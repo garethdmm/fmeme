@@ -4,6 +4,7 @@ from google.appengine.api import urlfetch
 from django.utils import simplejson as json
 
 from constants import imgur_upload_url, imgur_key, meme_names
+from model import Image
 import urllib
 import base64
 import logging
@@ -14,6 +15,7 @@ class BakeHandler(webapp.RequestHandler):
     # receive image bytes
     image = self.request.get('image', '' )
     meme_type = self.request.get('meme_type', '' )
+    new_image_id = self.request.get('new_image_id', '' )
 
     meme_name = meme_names[meme_type]
 
@@ -37,10 +39,15 @@ class BakeHandler(webapp.RequestHandler):
     # parse response
     # TODO error handling
     response_data = json.loads(response.content)
-    image_id = response_data['upload']['links']['original']
+    imgur_id = response_data['upload']['links']['original']
 
-    image_id = image_id[image_id.rfind('/') + 1 : ]
-    image_url = 'https://' + os.environ['HTTP_HOST'] + '/image?id=' + image_id + '&meme_name=' + meme_name
+    imgur_id = imgur_id[imgur_id.rfind('/') + 1 : ]
+    image_url = 'https://' + os.environ['HTTP_HOST'] + '/image?id=' + new_image_id #+ '&meme_name=' + meme_name
+
+    # update the mapping in the database
+    image = Image.get_by_id(new_image_id)
+    image.imgur_id=imgur_id
+    image.put()
 
     # return the imgur url
     self.response.out.write(image_url)
