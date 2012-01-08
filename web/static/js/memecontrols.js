@@ -71,7 +71,7 @@ bake = function(meme_id) {
   $(spinner_id).css('display', 'inline');
   $(share_id).css('display', 'none');
 
-  child = window.open('https://' + window.location.host + '/fbshare', 'child', 'height=400,width=625,scrollbars');
+  child = window.open(window.location.origin + '/fbshare', 'child', 'height=400,width=625,scrollbars');
 
   $.ajax({
     url: 'bake',

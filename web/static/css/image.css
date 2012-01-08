@@ -1,0 +1,13 @@
+#meme-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fm-like-container {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: block;
+}
