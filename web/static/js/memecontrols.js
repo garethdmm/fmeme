@@ -96,6 +96,7 @@ send_child_to_facebook = function() {
 
 childopen = function() {
   if (childflag == true) {
+    window.location = image_url;
     child.close();
   } else {
     childflag = true;
