@@ -40,7 +40,8 @@ class BakeHandler(webapp.RequestHandler):
     image_id = response_data['upload']['links']['original']
 
     image_id = image_id[image_id.rfind('/') + 1 : ]
-    image_url = 'https://' + os.environ['HTTP_HOST'] + '/image?id=' + image_id + '&meme_name=' + meme_name
+    protocol = self.request.url[ : self.request.url.find(':')]
+    image_url = protocol + '://' + os.environ['HTTP_HOST'] + '/image?id=' + image_id + '&meme_name=' + meme_name
 
     # return the imgur url
     self.response.out.write(image_url)
