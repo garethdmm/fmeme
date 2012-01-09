@@ -28,7 +28,7 @@ def make_user():
   response = urllib2.urlopen(url)
 
   user = json.loads(response.read())
-  print user['access_token']
+  print user['login_url']
 
   return user
 
