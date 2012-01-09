@@ -42,7 +42,8 @@ class BakeHandler(webapp.RequestHandler):
     imgur_id = response_data['upload']['links']['original']
 
     imgur_id = imgur_id[imgur_id.rfind('/') + 1 : ]
-    image_url = 'https://' + os.environ['HTTP_HOST'] + '/image?id=' + new_image_id #+ '&meme_name=' + meme_name
+    protocol = self.request.url[ : self.request.url.find(':')]
+    image_url = protocol + '://' + os.environ['HTTP_HOST'] + '/image?id=' + new_image_id #+ '&meme_name=' + meme_name
 
     # update the mapping in the database
     image = Image.get_by_id(new_image_id)
