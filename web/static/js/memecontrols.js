@@ -68,7 +68,7 @@ bake = function(meme_id) {
     'meme_type': meme_type,
   }
 
-  $(spinner_id).css('display', 'inline');
+  $(spinner_id).css('display', 'block');
   $(share_id).css('display', 'none');
 
   child = window.open(window.location.origin + '/fbshare', 'child', 'height=400,width=625,scrollbars');
