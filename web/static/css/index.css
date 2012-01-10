@@ -61,7 +61,6 @@ div.fm-grid-square {
   border-radiuS: 5px;
   border: 1px solid black;
   margin-bottom: 20px;
-  overflow: hidden;
   position: relative;
   clear: none;
 }
@@ -77,9 +76,10 @@ div.fm-grid-square.neutral {
 }
 
 div.fm-grid-square.active {
-  border: none;
+  padding: 15px;
   display: block;
   width: 760px;
+  margin-top: 50px;
 }
 
 div.fm-grid-square.inactive {
@@ -126,13 +126,15 @@ div.fm-grid-square.active img.meme-image {
 }
 
 div.fm-grid-square.active img.back-button {
-  display: none;
-  position: relative;
-  top: 0px;
-  left: 0px;
+  display: inline;
+  position: absolute;
+  z-index: 10000;
+  top: -16px;
+  left: -17px;
   width: 30px;
   margin: 0px;
-  margin-left: 150px;
+  margin-left: 0px;
+  background-color: white;
 }
 
 div.fm-inputs-container input {
