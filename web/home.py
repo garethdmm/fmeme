@@ -10,11 +10,10 @@ from constants import app_id, canvas_page, auth_url
 
 class HomeHandler(webapp.RequestHandler):
   def get(self):
-    if 'localhost' in self.request.url:
-      feed_url = self.feed_dialog_url()
-      f = open('static/html/index.html')
-      self.response.out.write(f.read() % {'feed_url': feed_url})
-      return
+    feed_url = self.feed_dialog_url()
+    f = open('static/html/index.html')
+    self.response.out.write(f.read() % {'feed_url': feed_url})
+    return
 
     code = self.request.get('code', '')
     post_id = self.request.get('post_id')
