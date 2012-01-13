@@ -15,7 +15,7 @@ class ImageHandler(webapp.RequestHandler):
     params = {
       'title': meme_name,
       'image_url': imgur_link,
-      'page_url': self.request.url,
+      'page_url': 'https://effmeme.appspot.com/image?id=' + image_id + '&meme_name=' + meme_name,
     }
 
     template = open('static/html/image.html').read()
@@ -32,7 +32,7 @@ class ImageHandler(webapp.RequestHandler):
     params = {
       'title': meme_name,
       'image_url': imgur_link,
-      'page_url': self.request.url,
+      'page_url': 'https://effmeme.appspot.com/image?id=' + image_id + '&meme_name=' + meme_name,
     }
 
     template = open('static/html/image.html').read()
